@@ -47,3 +47,45 @@ function openMarksheet(image) {
 function closeMarksheet() {
     document.getElementById("marksheetModal").style.display = "none";
 }
+
+/* ==========================
+   MOBILE NAVBAR
+========================== */
+
+const menuBtn = document.querySelector(".menu-btn");
+const navbar = document.querySelector(".navbar");
+const navLinks = document.querySelectorAll(".navbar a");
+
+menuBtn.addEventListener("click", () => {
+
+    navbar.classList.toggle("active");
+
+    const icon = menuBtn.querySelector("i");
+
+    if (navbar.classList.contains("active")) {
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-xmark");
+    } else {
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+    }
+
+});
+
+
+/* Close menu after clicking a link */
+
+navLinks.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navbar.classList.remove("active");
+
+        const icon = menuBtn.querySelector("i");
+
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+
+    });
+
+});
